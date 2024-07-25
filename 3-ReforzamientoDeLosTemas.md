@@ -199,6 +199,24 @@ const saludar = () => console.log("Hola, mundo!");
 - Sin return: Las funciones de flecha pueden devolver un valor implícito si el cuerpo de la función es una expresión.
 - No tiene this: Las funciones de flecha no tienen una referencia a this.
 
+```js
+function sumar(a, b) {
+    return a + b;
+}
+console.log(sumar(5, 10));
+
+//FUNCIONES DE FLECHA
+const sumar2 = (a, b) => {
+    return a + b;
+}
+console.log(sumar2(3, 5));
+
+//OTRA FORMA DE LA FUNCION FLECHA ES:
+/*
+const sumar2 = (a, b) => a + b;
+*/
+```
+
 # 21. Callbacks
 
 Los callbacks en JavaScript son funciones que se pasan como argumentos a otras funciones. Se utilizan para ejecutar código después de que se complete una tarea o operación.
@@ -304,37 +322,20 @@ getUsuarioByID(10, () => {
 
 Ahora la salida sale el hola mundo, pero ahora yo quiero imprimir el usuario . Eso lo hariamos asi:
 
-const getUsuarioByID = (id) => {
+const getUsuarioByID = (id, callback) => {
     const usuario = {
         id,
         nombre: 'Fernando'
     }
     setTimeout(() => {
-        console.log(usuario);
+        callback(usuario);
     }, 4000);
 }
-//getUsuarioByID(10);
 
 getUsuarioByID(10, (usuario) => {
     console.log(usuario);
 });
 */
-
-function imprimirMensaje(mensaje, callback) {
-    setTimeout(() => {
-      // Imprime el mensaje
-      console.log(mensaje);
-  
-      // Ejecuta el callback
-      callback();
-    }, 1000);
-  }
-  
-  // Llamada a la función
-  imprimirMensaje("Hola, mundo!", () => {
-    // Hace algo después de imprimir el mensaje
-    console.log("¡Listo!");
-  });
 ```
 
 # 22. Problemas comunes con los callbacks
@@ -1069,3 +1070,5 @@ getInfoUsuario(id)
 ```
 
 # 27. Codigo fuente de la seccion
+
+https://github.com/Klerith/node-intro-javascript

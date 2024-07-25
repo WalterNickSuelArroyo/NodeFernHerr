@@ -436,3 +436,5 @@ Opciones:
 # 42. Codigo fuente de la seccion
 
 https://github.com/Klerith/curso-node-tabla
+
+Recuerden ejecutar el npm install  para reconstruir los módulos de node en caso de que quieran usar este ejercicio.

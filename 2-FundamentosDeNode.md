@@ -1,6 +1,5 @@
 # 6. Introduccion a la seccion
 
-
 # 7. Temas puntuales de la seccion
 
 ![Temas puntuales de la seccion](img/1.PNG)
@@ -44,6 +43,8 @@ La elección entre I/O bloqueante y no bloqueante depende de los requisitos de t
 
 # 10. Hola Mundo en Node
 
+Para ejecutar un archivo js desde el servidor usando node ponemos el comando ubicados en el directori correcto: node nombreDelArchivo.js
+
 ```js
 /*let nombre = 'Fernando';
 console.log(nombre);
@@ -86,3 +87,16 @@ console.log('Fin de programa');
 
 Pila de procesos (Call Stack) <=> Node Apis <=> Cola de callbacks
 
+# 13. Nodemon
+
+Nodemon es una herramienta que ayuda a desarrollar aplicaciones en Node.js reiniciando automáticamente la aplicación del servidor cuando detecta cambios en los archivos del proyecto. Esto elimina la necesidad de reiniciar manualmente el servidor cada vez que se hacen modificaciones, lo que mejora la eficiencia del desarrollo.
+
+https://www.npmjs.com/package/nodemon
+
+Para instalarlo de manera global ponemos el siguiente comando:
+
+npm install -g nodemon # or using yarn: yarn global add nodemon
+
+# 14. Codigo fuente de la seccion
+
+https://github.com/Klerith/node-hola-mundo/releases/tag/v0.1.0
