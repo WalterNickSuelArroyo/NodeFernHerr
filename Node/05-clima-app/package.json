@@ -1,0 +1,19 @@
+{
+  "name": "05-clima-app",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "05-clima-app": "file:",
+    "axios": "^1.7.3",
+    "colors": "^1.4.0",
+    "dotenv": "^16.4.5",
+    "inquirer": "^8.1.2"
+  }
+}
