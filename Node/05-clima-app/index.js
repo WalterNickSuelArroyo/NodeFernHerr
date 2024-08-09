@@ -1,9 +1,11 @@
 require('dotenv').config()
+const { leerDB } = require('../04-tareas-hacer/helpers/guardarArchivo');
 const { leerInput, inquirerMenu, pausa, listarLugares } = require("./helpers/inquirer");
 const Busquedas = require("./models/busquedas");
 
 const main = async () => {
     const busquedas = new Busquedas();
+    
     let opt = '';
 
     do {
@@ -19,21 +21,35 @@ const main = async () => {
 
                 // Seleccionar el lugar
                 const id = await listarLugares(lugares);
+                if (id === '0') continue;
+
                 const lugarSel = lugares.find(l => l.id === id)
 
+                //Guardar en DB
+                busquedas.agregarHistorial(lugarSel.nombre);
+                
+
                 // Clima
+                const clima = await busquedas.climaLugar(lugarSel.lat, lugarSel.lng);
 
                 // Mostrar resultados
+                console.clear();
                 console.log('\nInformacion de la ciudad\n'.green);
-                console.log('Ciudad:',lugarSel.nombre);
-                console.log('Lat:', lugarSel.lng);
-                console.log('Lng:', lugarSel.lat);
-                console.log('Temperatura:',);
-                console.log('Minima:',);
-                console.log('Maxima:',);
+                console.log('Ciudad:', lugarSel.nombre.green);
+                console.log('Lng:', lugarSel.lng);
+                console.log('Lat:', lugarSel.lat);
+                console.log('Temperatura:', clima.temp);
+                console.log('Minima:', clima.min);
+                console.log('Maxima:', clima.max);
+                console.log('Como está el clima:', clima.desc.green)
                 break;
             case 2:
-                console.log('Opcion 2 seleccionada')
+                busquedas.leerDB();
+                busquedas.historialCapitalizado.forEach((lugar, i) => {
+                    const idx = `${i + 1}.`.green;
+                    console.log(`${idx} ${lugar}`);
+                })
+                
                 break;
             default:
                 break;
